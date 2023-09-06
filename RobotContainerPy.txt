@@ -1,0 +1,39 @@
+# Copyright (c) FIRST and other WPILib contributors.
+# Open Source Software; you can modify and/or share it under the terms of
+# the WPILib BSD license file in the root directory of this project.
+
+from frc.robot import Robot
+from edu.wpi.first.wpilibj import GenericHID
+from edu.wpi.first.wpilibj import XboxController
+from edu.wpi.first.math.kinematics import ChassisSpeeds
+from edu.wpi.first.wpilibj2.command import Command
+from edu.wpi.first.wpilibj2.command import FunctionalCommand
+from edu.wpi.first.wpilibj2.command import InstantCommand
+from edu.wpi.first.wpilibj2.command.button import Button
+from frc.robot.commands import DefaultDriveCommand
+from frc.robot.subsystems import DrivetrainSubsystem
+
+"""
+This class is where the bulk of the robot should be declared. Since Command-based is a
+"declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
+periodic methods (other than the scheduler calls). Instead, the structure of the robot (including
+subsystems, commands, and button mappings) should be declared here.
+"""
+class RobotContainer:
+    # The robot's subsystems and commands are defined here...
+    m_drivetrainSubsystem = DrivetrainSubsystem()
+
+    m_controller = XboxController(0)
+
+    """
+    The container for the robot. Contains subsystems, OI devices, and commands.
+    """
+    def __init__(self):
+        # Set up the default command for the drivetrain.
+        # The controls are for field-oriented driving:
+        # Left stick Y axis -> forward and backwards movement
+        # Left stick X axis -> left and right movement
+        # Right stick X axis -> rotation
+        m_drivetrainSubsystem.setDefaultCommand(DefaultDriveCommand(
+            m_drivetrainSubsystem,
+            lambda: -self.modifyAxis(m_controller.getLeftY()) * DrivetrainSubsystem.MAX_VELOCITY_
