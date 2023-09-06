@@ -1,0 +1,26 @@
+import wpilib
+
+class Robot(wpilib.TimedRobot):
+    def robotInit(self):
+        pass
+
+    def autonomousInit(self):
+        pass
+
+    def autonomousPeriodic(self):
+        pass
+
+    def teleopInit(self):
+        pass
+
+    def teleopPeriodic(self):
+        pass
+
+    def testInit(self):
+        pass
+
+    def testPeriodic(self):
+        pass
+
+if __name__ == "__main__":
+    wpilib.run(Robot)
