@@ -1,0 +1,53 @@
+# THIS FILE IS TO MOSTLY TO OVERIDE THE ROBOT
+import wpilib
+from wpilib.command import TimedRobot
+from wpilib.command import Command
+from wpilib.command import CommandScheduler
+from robot.subsystems import DrivetrainSubsystem
+
+class Robot(TimedRobot):
+    def robotInit(self):
+        self.m_autonomousCommand = None
+        self.m_robotContainer = RobotContainer()
+
+    def robotPeriodic(self):
+        pass
+
+    def disabledInit(self):
+        pass
+
+    def disabledPeriodic(self):
+        pass
+
+    def autonomousInit(self):
+        pass
+
+    def autonomousPeriodic(self):
+        pass
+
+    def teleopInit(self):
+        pass
+
+    def teleopPeriodic(self):
+        pass
+
+    def testInit(self):
+        pass
+
+    def testPeriodic(self):
+        pass
+
+    def getAutonomousCommand(self):
+        return self.m_autonomousCommand
+
+    def setAutonomousCommand(self, command):
+        self.m_autonomousCommand = command
+
+    def getRobotContainer(self):
+        return self.m_robotContainer
+
+    def setRobotContainer(self, container):
+        self.m_robotContainer = container
+
+    def getCommandScheduler(self):
+        return CommandScheduler.getInstance()
