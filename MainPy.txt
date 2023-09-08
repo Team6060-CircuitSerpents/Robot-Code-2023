@@ -1,3 +1,5 @@
+#THIS FILE IS TO INITILAIZE THE ROBOT ALONG WITH THE AUTONOMOUS AND TELEOP
+
 import wpilib
 
 class Robot(wpilib.TimedRobot):
